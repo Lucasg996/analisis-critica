@@ -5,12 +5,14 @@ import pandas as pd
 
 
 class IMDbReviewAnalyzer:
+    """Clase que se encarga de parsear la pagina"""
     def __init__(self, url):
         self.url = url
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
 
+##  
     def obtener_html(self):
         try:
             response = requests.get(self.url, headers=self.headers)
