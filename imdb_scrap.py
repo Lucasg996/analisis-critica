@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from textblob import TextBlob
 import pandas as pd
 
+
 class IMDbReviewAnalyzer:
     def __init__(self, url):
         self.url = url
@@ -18,6 +19,10 @@ class IMDbReviewAnalyzer:
         except requests.RequestException as e:
             print(f"Error al hacer la solicitud: {e}")
             return None
+        
+class Opiniones(IMDbReviewAnalyzer):
+    def __init__(self, url):
+        super().__init__(url)
 
     def extraer_opiniones(self, html):
         soup = BeautifulSoup(html, 'html.parser')
@@ -37,6 +42,12 @@ class IMDbReviewAnalyzer:
             return 'Neutral'
         else:
             return 'Negativa'
+        
+    def analizar_opiniones(self):
+        html = self.obtener_html()
+        if html:
+            opiniones = self.extraer_opiniones(html)
+            self.guardar_en_csv(opiniones)
 
     def guardar_en_csv(self, opiniones, filename='opiniones_pelicula_imdb.csv'):
         resultados = [(usuario, self.analizar_sentimiento(opinion)) for usuario, opinion in opiniones]
@@ -45,8 +56,4 @@ class IMDbReviewAnalyzer:
         df.to_csv(filename, index=False)
         print(f"Análisis completado y guardado en {filename}")
 
-    def analizar_opiniones(self):
-        html = self.obtener_html()
-        if html:
-            opiniones = self.extraer_opiniones(html)
-            self.guardar_en_csv(opiniones)
+
