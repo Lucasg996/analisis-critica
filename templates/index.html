@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMDb Review Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IMDb Review Analyzer</h1>
+        <form action="/analizar" method="post">
+            <label for="pelicula">Nombre o URL de la película:</label><br>
+            <input type="text" id="pelicula" name="pelicula" required><br>
+            <input type="submit" value="Analizar">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

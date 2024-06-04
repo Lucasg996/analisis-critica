@@ -1,0 +1,79 @@
+/* Estilos básicos */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #b2fae8; /* Verde claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    background-color: #d1ebf7;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos para el título */
+h1 {
+    color: #2c3e50; /* Azul oscuro */
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para los labels y inputs */
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #34495e; /* Azul medio */
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bdc3c7; /* Gris claro */
+    border-radius: 4px;
+    font-size: 14px;
+    color: #34495e; /* Azul medio */
+}
+
+input[type="submit"] {
+    background-color: #48b475; /* Verde */
+    color: #2c3e50;
+    border: none;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+input[type="submit"]:hover {
+    background-color: #397954; /* Verde más oscuro */
+}
+
+/* Estilos para el enlace */
+a {
+    color: #3498db; /* Azul claro */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
