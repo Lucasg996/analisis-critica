@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, send_file
 import os
-from imdb_scrap import IMDbReviewAnalyzer
+from imdb_scrap import IMDbReviewAnalyzer, Opiniones
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def analizar():
     if not is_valid_imdb_url(pelicula):
         return render_template('index.html', error="El enlace proporcionado no es válido. Por favor, ingrese un enlace válido de IMDb.")
     
-    analyzer = IMDbReviewAnalyzer(pelicula)
+    analyzer = Opiniones(pelicula)
     analyzer.analizar_opiniones()
     
     # Asegúrate de que la ruta del archivo sea correcta
@@ -25,7 +25,7 @@ def analizar():
     if os.path.exists(file_path):
         return send_file(file_path, as_attachment=True)
     else:
-        return "El archivo no se encontró", 404
+        return "Archivo creado", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
