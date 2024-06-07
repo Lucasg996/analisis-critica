@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, send_file
 import os
-from imdb_scrap import IMDbReviewAnalyzer, Opiniones
+from imdb_scrap import Opiniones
 
 app = Flask(__name__)
 

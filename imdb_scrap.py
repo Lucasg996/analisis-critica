@@ -64,7 +64,7 @@ class Opiniones(IMDbReviewAnalyzer):
             self.guardar_en_csv(opiniones, nombre_pelicula)
 
     def guardar_en_csv(self, opiniones, nombre_pelicula):
-        # Sanitizar el nombre de la película para que sea un nombre de archivo válido
+        # Limpia el nombre de la pelicula de caracteres que no se permiten como nombre de archivo
         nombre_pelicula = re.sub(r'[\\/*?:"<>|]', "", nombre_pelicula)
         filename = f'{nombre_pelicula}_opiniones.csv'
 
